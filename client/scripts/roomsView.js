@@ -6,8 +6,19 @@ var RoomsView = {
   initialize: function() {
   },
 
-  render: function(inputMsg) {
-    Rooms.roomsArr(inputMsg);
+  renderRooms: _.template(`
+
+        <div id="rooms">
+        <div class="rooms"><%=roomname%></div>
+
+        </div>
+
+`),
+
+  renderRoom: function(inputMsg) {
+
+    var html = RoomsView.renderRooms(inputMsg);
+    this.$select.append(html);
 
   }
 };
